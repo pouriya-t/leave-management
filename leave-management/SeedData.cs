@@ -20,14 +20,14 @@ namespace leave_management
         {
             var users = userManager.GetUsersInRoleAsync("Employee").Result;
 
-            if(userManager.FindByNameAsync("admin@localhost.com").Result == null)
+            if(userManager.FindByNameAsync("admin@gmail.com").Result == null)
             {
                 var user = new Employee
                 {
-                    UserName = "admin@localhost.com",
-                    Email = "admin@localhost.com"
+                    UserName = "admin@gmail.com",
+                    Email = "admin@gmail.com"
                 };
-                var result = userManager.CreateAsync(user, "P@ssword1").Result;
+                var result = userManager.CreateAsync(user, "Admin123*").Result;
                 if (result.Succeeded)
                 {
                     userManager.AddToRoleAsync(user, "Administrator").Wait();
